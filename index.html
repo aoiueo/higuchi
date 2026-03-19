@@ -3,12 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <title>今日のランチ提案</title>
+  <style>
+    /* 全体を画面中央に配置 */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: linear-gradient(to bottom, #fff8f0, #ffe0b3);
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: #ff6600;
+      text-shadow: 1px 1px 2px #aaa;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: #ff9900;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px #aaa;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #ffcc66;
+    }
+
+    #result {
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #333;
+      background-color: rgba(255,255,255,0.8);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      box-shadow: 2px 2px 8px #aaa;
+      max-width: 600px;
+    }
+  </style>
 </head>
 <body>
 
   <h1>今日のランチ何にする？</h1>
   <button onclick="suggestLunch()">ランチを決める</button>
-  <div id="result">ここに表示されます</div>
+  <div id="result">ここにランチ候補が表示されます</div>
 
   <script>
     const lunches = [
@@ -50,7 +99,7 @@
       const randomIndex = Math.floor(Math.random() * lunches.length);
       const [menu, comment] = lunches[randomIndex].split("｜");
       document.getElementById("result").innerHTML =
-        `<strong>${menu}</strong><br><span style="font-size:16px;color:#666;">${comment}</span>`;
+        `<strong>${menu}</strong><br><span style="font-size:1.2rem;color:#666;">${comment}</span>`;
     }
   </script>
 
